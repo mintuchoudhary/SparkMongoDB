@@ -10,8 +10,8 @@ object SparkMongoDBReadConnector {
       .master("local")
       .config("spark.testing.memory", "2147480000")
       .config("spark.network.timeout","90000")
-      .config("spark.mongodb.input.uri", "mongodb+srv://mongodb:mongodb@cluster0.jlw8f.mongodb.net/sample_training")
-      .config("spark.mongodb.output.uri", "mongodb+srv://mongodb:mongodb@cluster0.jlw8f.mongodb.net/sample_training")
+      .config("spark.mongodb.input.uri", "mongodb+srv://mongodb:mongodb@<SERVER_NAME>/<DATABASE_NAME>")
+      .config("spark.mongodb.output.uri", "mongodb+srv://mongodb:mongodb@<SERVER_NAME>/<DATABASE_NAME>")
       .getOrCreate()
 
     val routesDF = spark.read.format("com.mongodb.spark.sql.DefaultSource")
